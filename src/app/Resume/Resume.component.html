@@ -1,0 +1,30 @@
+<div class="Resume">
+  <div class="WorkExperience">
+    <div class="Experience" *ngFor="let job of Jobs">
+      <div class="Header">
+        <div class="titleEmployer">
+          <div class="JobTitle">{{ job.title }}</div>
+          <div class="Employer">{{ job.employer.name }}</div>
+        </div>
+
+        <div class="Dates">
+          {{ job.dates.start.toLocaleString().split(",")[0] }} -
+          {{ job.dates.end ? job.dates.end : "Present" }}
+        </div>
+      </div>
+
+      <div class="responsibilities">
+        <div class="responsibility" *ngFor="let responsibility of job.duties">
+          <div class="description">{{responsibility.description}}</div>
+          <div class="skills">
+            <div class="skill" *ngFor="let skill of responsibility.skills">
+              {{skill}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="Education"></div>
+  <div class="Skills"></div>
+</div>

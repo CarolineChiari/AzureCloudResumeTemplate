@@ -1,0 +1,109 @@
+.Resume {
+  width: 75vw;
+  margin: auto;
+}
+.Header {
+  display: flex;
+  justify-content: space-between;
+}
+.titleEmployer{
+  display: flex;
+  flex-direction: row;
+  width: 75vw;
+  /* background-color: aqua; */
+}
+.JobTitle {
+  font-size: x-large;
+  padding: 5px;
+}
+.Employer {
+  font-size: x-large;
+  padding: 5px;
+  color: rgb(100, 100, 100);
+}
+.Dates {
+  width: 25vw;
+  padding: 5px;
+  font-size: x-large;
+  /* background-color: aqua; */
+  margin: auto;
+}
+
+.responsibilities {
+  /* background-color: blue; */
+  width: 100%;
+}
+.responsibility {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+}
+.responsibility .description{
+  width: 60%;
+  padding: 5px;
+}
+.responsibility .skills {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content:space-evenly;
+  width: 40%;
+}
+.skill {
+  background-color: rgba(0,0,255,0.05);
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.25);
+}
+
+/* https://www.w3schools.com/css/css_rwd_mediaqueries.asp */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .titleEmployer{
+    flex-direction: column;
+    width: 95vw;
+  }
+  .Resume {
+    width: 95vw;
+  }
+  .Header {
+    flex-direction: column;
+  }
+  .JobTitle {
+    width: 95vw;
+  }
+  .Employer {
+    width: 95vw;
+  }
+  .Dates {
+    width: 95vw;
+  }
+  .responsibility{
+    flex-direction: column;
+  }
+  .responsibility .description{
+    width: 100%;
+  }
+  .responsibilities .skills {
+    width: 100%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}
