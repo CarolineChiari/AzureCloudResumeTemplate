@@ -4,7 +4,6 @@ import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ResumeComponent } from "./Resume/Resume.component";
-import { AdminComponent } from "./Admin/Admin.component";
 import { MsalInterceptor, MsalModule } from "@azure/msal-angular";
 import { environment } from "src/environments/environment";
 import {
@@ -15,7 +14,7 @@ import {
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 
 @NgModule({
-  declarations: [AppComponent, ResumeComponent, AdminComponent],
+  declarations: [AppComponent, ResumeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

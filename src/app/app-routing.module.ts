@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { MsalGuard } from "@azure/msal-angular";
-import { AdminComponent } from "./Admin/Admin.component";
 import { ResumeComponent } from "./Resume/Resume.component";
 
 const routes: Routes = [
@@ -15,8 +14,8 @@ const routes: Routes = [
   },
   {
     path: "admin",
-    component: AdminComponent,
-    canActivate: [MsalGuard],
+    loadChildren: () => import('./administration/administration.module').then(m=>m.AdministrationModule),
+    canLoad: [MsalGuard],
   },
 ];
 
