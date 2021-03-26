@@ -23,3 +23,11 @@ steps:
     npm install
     ng build --prod
   displayName: 'npm install and build'
+- task: AzureFileCopy@4
+  inputs:
+    SourcePath: './dist/CloudResumeTemplate'
+    azureSubscription: '$(azure subscription)'
+    Destination: 'AzureBlob'
+    storage: '$(storageAccount)'
+    ContainerName: '$web'
+  displayName: 'Copy result to Azure Blob'
