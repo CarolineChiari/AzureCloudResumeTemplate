@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  azureADApplicationID: "Enter Your Application ID Here"
+  azureADApplicationID: "<ApplicationClientID>",
+  azureADTenantID: "<AzureTenantID>",
+  redirectURI: "http://localhost:4200"
 };
 
 /*

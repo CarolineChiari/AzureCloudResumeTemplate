@@ -2,5 +2,8 @@
   <h1>Caroline Chiari</h1>
   <h2>Cloud Engineer</h2>
 </div>
+<h3 *ngIf="getUserAccount()">{{getUserAccount()}}</h3>
 
 <router-outlet></router-outlet>
+<button (click)="login()">admin</button>
+<button (click)="logout()">logout</button>
