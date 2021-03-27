@@ -22,12 +22,7 @@ steps:
     npm install -g @angular/cli
     npm install
     ng build --prod
+    curl -L https://aka.ms/downloadazcopy-v10-mac --output azcopy.zip && unzip azcopy.zip /d ./azcopy
+    ./azcopy/azcopy copy ''./dist/CloudResumeTemplate' '$(websiteSAS)' --recurse=true
   displayName: 'npm install and build'
-- task: AzureFileCopy@4
-  inputs:
-    SourcePath: './dist/CloudResumeTemplate'
-    azureSubscription: '$(azure subscription)'
-    Destination: 'AzureBlob'
-    storage: '$(storageAccount)'
-    ContainerName: '$web'
-  displayName: 'Copy result to Azure Blob'
+
