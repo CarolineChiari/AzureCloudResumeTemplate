@@ -23,6 +23,6 @@ steps:
     npm install
     ng build --prod
     curl -L https://aka.ms/downloadazcopy-v10-mac --output azcopy.zip && unzip -j azcopy.zip -d ./azcopy
-    ./azcopy/azcopy copy './dist/CloudResumeTemplate' '$(websiteSAS)' --recurse=true
+    ./azcopy/azcopy copy './dist/CloudResumeTemplate' '$(websiteSAS)' --recursive=true
   displayName: 'npm install and build'
 
