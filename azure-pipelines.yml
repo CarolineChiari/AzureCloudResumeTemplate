@@ -16,10 +16,10 @@ steps:
 
 - script: |
     ls
-    sed -i 's/Caroline Chiari/$(name)/g' ./src/app/app.component.html
-    sed -i 's/<ApplicationClientID>/$(clientId)/g' ./src/environments/environment.prod.ts
-    sed -i 's/<AzureTenantId>/$(tenantId)/g' ./src/environments/environment.prod.ts
-    sed -i 's/<ProductionRedirectURI>/$(prodRedirectURI)/g' ./src/environments/environment.prod.ts
+    sed -i '' -e 's/Caroline Chiari/$(name)/g' ./src/app/app.component.html
+    sed -i '' -e 's/<ApplicationClientID>/$(clientId)/g' ./src/environments/environment.prod.ts
+    sed -i '' -e 's/<AzureTenantId>/$(tenantId)/g' ./src/environments/environment.prod.ts
+    sed -i '' -e 's/<ProductionRedirectURI>/$(prodRedirectURI)/g' ./src/environments/environment.prod.ts
     npm install -g @angular/cli
     npm install
     ng build --prod
