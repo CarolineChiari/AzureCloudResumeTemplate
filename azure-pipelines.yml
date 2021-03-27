@@ -15,10 +15,10 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    sed -i s/Caroline Chiari/$(name)/ ./src/app/app.component.html
-    sed -i s/<ApplicationClientID>/$(clientId)/ ./src/environments/environment.prod.ts
-    sed -i s/<AzureTenantId>/$(tenantId)/ ./src/environments/environment.prod.ts
-    sed -i s/<ProductionRedirectURI>/$(prodRedirectURI)/ ./src/environments/environment.prod.ts
+    sed -i 's/Caroline Chiari/$(name)/g' ./src/app/app.component.html
+    sed -i 's/<ApplicationClientID>/$(clientId)/g' ./src/environments/environment.prod.ts
+    sed -i 's/<AzureTenantId>/$(tenantId)/g' ./src/environments/environment.prod.ts
+    sed -i 's/<ProductionRedirectURI>/$(prodRedirectURI)/g' ./src/environments/environment.prod.ts
     npm install -g @angular/cli
     npm install
     ng build --prod
