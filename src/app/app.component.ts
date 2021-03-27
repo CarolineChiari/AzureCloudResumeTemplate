@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { MsalService } from "@azure/msal-angular";
 import { AuthenticationResult } from "@azure/msal-browser";
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: "app-root",
@@ -9,10 +10,11 @@ import { AuthenticationResult } from "@azure/msal-browser";
 })
 export class AppComponent {
   title = "CloudResumeTemplate";
-
+  environment = environment;
   constructor(private msalService: MsalService) {}
 
   login() {
+
     this.msalService
       .loginPopup()
       .subscribe((response: AuthenticationResult) => {
