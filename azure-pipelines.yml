@@ -17,6 +17,7 @@ steps:
 - script: |
     ls
     sed -i '' -e 's/Caroline Chiari/$(name)/g' ./src/app/app.component.html
+    sed -i '' -e 's,<MyName>,$(name),g' ./src/index.html
     sed -i '' -e 's/<ApplicationClientID>/$(clientId)/g' ./src/environments/environment.prod.ts
     sed -i '' -e 's/<AzureTenantID>/$(tenantId)/g' ./src/environments/environment.prod.ts
     sed -i '' -e 's,<ProductionRedirectURI>,$(prodRedirectURI),g' ./src/environments/environment.prod.ts
