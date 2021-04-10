@@ -3,7 +3,33 @@
   font-family: lato;
   src: url(assets/fonts/Montserrat-Regular.ttf) format("truetype");
 }
+@font-face {
+  font-family: 'Custom';
+  src: url('assets/fonts/Social Media Circled.otf') format("opentype");
+}
 
 *{
   font-family: 'Montserrat'
+}
+body {
+  margin: 0px;
+  padding: 0px;
+}
+.primary-color {
+  color: #0086ff;
+}
+.secondary-color {
+  color:#ff6e1a;
+}
+.primary-backgroundColor {
+  background-color: #0086ff;
+}
+.secondary-backgroundColor {
+  background-color:#ff6e1a;
+}
+.primary-backgroundColorLight {
+  background-color: #0086ff50;
+}
+.secondary-backgroundColorLight {
+  background-color:#ff6e1a50;
 }

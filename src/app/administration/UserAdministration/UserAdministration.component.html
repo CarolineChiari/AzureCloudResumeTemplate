@@ -1,0 +1,29 @@
+<div
+  class="userSettings"
+  [formGroup]="userDetailsForm"
+>
+  <div class="name">
+    <input formControlName="name" placeholder="Your Name" />
+  </div>
+  <div class="title">
+    <input formControlName="title" placeholder="Tagline"/>
+  </div>
+</div>
+<div class="social">
+  <div class="account" *ngFor="let socialAccount of getSocial().controls; index as i" [formGroup]="socialAccount">
+    <input placeholder="Social Network Name" formControlName="name" class="name"/>
+    <input placeholder="Social Account" formControlName="value" class="value"/>
+    <div class="addRemove">
+      <span class="material-icons icon secondary-color" (click)="removeSocialAccount(i)" *ngIf="getSocial().controls.length > 1">cancel</span>
+      <span
+      class="material-icons icon primary-color"
+      *ngIf="getSocial().controls.length - 1 === i"
+      (click)="addSocialAccount()"
+      >add_circle</span>
+    </div>
+
+  </div>
+</div>
+<app-richTextEditor [text]="aboutMe" (textChange)="setAboutMe($event)"></app-richTextEditor>
+<button class="submit primary-backgroundColor"
+(click)="onSubmit(userDetailsForm)">Submit</button>

@@ -1,3 +1,12 @@
-<p>
-  administration works!
-</p>
+<div class="administration">
+  <div class="navigation primary-backgroundColor">
+    <div class="navigationItem" [routerLink]="['/admin/user']" routerLinkActive="activeLink" [routerLinkActive]="['activeLink','secondary-color']">User</div>
+    <div class="navigationItem" [routerLink]="['/admin/jobs']" routerLinkActive="activeLink" [routerLinkActive]="['activeLink','secondary-color']">Jobs</div>
+  </div>
+
+  <div class="adminActions" [ngSwitch]="selection">
+    <app-UserAdministration *ngSwitchCase="'user'"></app-UserAdministration>
+    <app-jobs *ngSwitchCase="'jobs'"></app-jobs>
+  </div>
+</div>
+

@@ -1,0 +1,65 @@
+input {
+  margin: 5px;
+  height: 25px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+.name {
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+.name input {
+  width: 100%;
+}
+.title {
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+.title input {
+  width: 100%;
+}
+.social {
+  display: flex;
+  flex-direction: column;
+}
+.account {
+  width: 50vw;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.account .name {
+  width: 15vw;
+}
+.account .value {
+  width: 30vw;
+}
+.account .addRemove {
+  width: 5vw;
+  display: flex;
+  align-items: center;
+}
+.icon {
+  margin: 5px;
+  cursor: pointer;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.25);
+  font-size: 35px;
+}
+button.submit{
+  font-size: xx-large;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 1px 1px white, 2px 2px 5px rgb(0 0 0 / 25%);
+  margin: auto;
+  font-weight: 600;
+  text-shadow: 1px 1px black;
+  cursor: pointer;
+}

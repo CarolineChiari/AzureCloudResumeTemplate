@@ -1,13 +1,14 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { MsalGuard } from "@azure/msal-angular";
+import { MainPageComponent } from "./main-page/main-page.component";
 import { MsaladminguardGuard } from "./msaladminguard.guard";
 import { ResumeComponent } from "./Resume/Resume.component";
 
 const routes: Routes = [
   {
     path: "",
-    component: ResumeComponent,
+    component: MainPageComponent,
   },
   {
     path: "resume",
@@ -15,6 +16,14 @@ const routes: Routes = [
   },
   {
     path: "admin",
+    loadChildren: () =>
+      import("./administration/administration.module").then(
+        (m) => m.AdministrationModule
+      ),
+    canLoad: [MsaladminguardGuard],
+  },
+  {
+    path: "admin/:selection",
     loadChildren: () =>
       import("./administration/administration.module").then(
         (m) => m.AdministrationModule

@@ -1,0 +1,57 @@
+<div
+  class="newJobForm"
+  [formGroup]="newJobForm"
+  (onSubmit)="newJob(newJobForm)"
+  *ngIf="newJobForm"
+>
+  <div class="newJob">
+    <input formControlName="title" placeholder="Job Title" class="title" />
+    <input formControlName="company" placeholder="Company" class="company" />
+    <input
+      formControlName="startDate"
+      placeholder="Start Date"
+      class="startDate"
+    />
+    <input formControlName="endDate" placeholder="End Date" class="endDate" />
+  </div>
+  <div class="responsibilities">
+    <div
+      class="responsibility"
+      *ngFor="let responsibility of newResponsibilities.controls; index as i"
+      [formGroup]="responsibility"
+    >
+      <input
+        formControlName="responsibility"
+        placeholder="Responsibility"
+        class="responsibilityDescription"
+      />
+      <input formControlName="skills" placeholder="Skills" class="skills" />
+      <span
+        class="material-icons add primary-color"
+        *ngIf="newResponsibilities.controls.length - 1 === i"
+        (click)="addResponsibility()"
+        >add_circle</span
+      >
+      <span class="material-icons remove secondary-color" (click)="removeResponsibility(i)">cancel</span>
+    </div>
+  </div>
+  <button type="submit" (click)="newJob(newJobForm)" class="primary-backgroundColor">Add Job</button>
+</div>
+<div class="jobs">
+  <div class="job" *ngFor="let job of jobs; index as i">
+    <div class="header primary-backgroundColor" (click)="toggleJob(i)">
+      <div class="title">{{ job.title }}</div>
+      <div class="company">{{ job.company }}</div>
+      <div class="dates secondary-color">{{ job.startDate }} - {{ job.endDate }}</div>
+      <span class="material-icons edit" (click)="edit(job)">edit</span>
+    </div>
+    <div class="responsibilities" [ngClass]="getJobStyle(i) ? 'closed' : 'open'">
+      <div class="responsibility" *ngFor="let duty of job.duties">
+        <div class="description">{{ duty.responsibility }}</div>
+        <div class="skills">
+          <div class="skill primary-backgroundColor" *ngFor="let skill of duty.skills">{{skill}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

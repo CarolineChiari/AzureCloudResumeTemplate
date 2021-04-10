@@ -1,23 +1,24 @@
+
 <div class="Resume">
   <div class="WorkExperience">
-    <div class="Experience" *ngFor="let job of Jobs">
-      <div class="Header">
+    <div class="Experience" *ngFor="let job of jobs">
+      <div class="Header primary-backgroundColor">
         <div class="titleEmployer">
-          <div class="JobTitle">{{ job.title }}</div>
-          <div class="Employer">{{ job.employer.name }}</div>
+          <div class="JobTitle secondary-color">{{ job.title }}</div>
+          <div class="Employer">{{ job.company }}</div>
         </div>
 
-        <div class="Dates">
-          {{ job.dates.start.toLocaleString().split(",")[0] }} -
-          {{ job.dates.end ? job.dates.end : "Present" }}
+        <div class="Dates secondary-color">
+          {{ job.startDate }} -
+          {{ job.endDate }}
         </div>
       </div>
 
       <div class="responsibilities">
-        <div class="responsibility" *ngFor="let responsibility of job.duties">
-          <div class="description">{{responsibility.description}}</div>
+        <div [class]="[hasFilter(duty)?'primary-backgroundColorLight':'none','responsibility']" *ngFor="let duty of job.duties">
+          <div class="description">{{duty.responsibility}}</div>
           <div class="skills">
-            <div class="skill" *ngFor="let skill of responsibility.skills">
+            <div [class]="[isFiltered(skill)? 'secondary-backgroundColor':'primary-backgroundColor','skill']" *ngFor="let skill of duty.skills" (click)="addFilter(skill)">
               {{skill}}
             </div>
           </div>

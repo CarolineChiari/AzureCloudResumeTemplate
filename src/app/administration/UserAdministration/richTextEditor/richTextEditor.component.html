@@ -1,0 +1,77 @@
+<div class="main">
+  <div class="editorTools">
+    <!-- <button
+      mat-icon-button
+      color="primary"
+      (click)="textValueChanged()"
+      [matTooltip]="'Save'"
+    >
+      <mat-icon>save</mat-icon>
+    </button> -->
+
+    <button
+      mat-icon-button
+      *ngFor="let tool of editorToolsButtons"
+      (click)="executeCommand(tool.command)"
+      (mousedown)="$event.preventDefault()"
+      [matTooltip]="tool.tooltip"
+      [class]="tool.active ? 'active':''"
+    >
+      <mat-icon>{{ tool.icon }}</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      (click)="addLink()"
+      (mousedown)="$event.preventDefault()"
+      [matTooltip]="'Add Link'"
+    >
+      <mat-icon>link</mat-icon>
+    </button>
+    <div class="textStyleButtons">
+      <button class="styleButton" (click)="formatTextStyle('<DIV>')"
+        (mousedown)="$event.preventDefault()"
+        >
+        Body
+      </button>
+      <button class="styleButton" (click)="formatTextStyle('<H1>')"
+        (mousedown)="$event.preventDefault()"
+        [class]="currentFormat === 'h1'? 'active':'' ">
+        <h1>Title</h1>
+      </button>
+      <button class="styleButton" (click)="formatTextStyle('<H2>')"
+        (mousedown)="$event.preventDefault()"
+        [class]="currentFormat === 'h2'? 'active':'' ">
+        <h2>Heading 1</h2>
+      </button>
+      <button class="styleButton" (click)="formatTextStyle('<H3>')"
+        (mousedown)="$event.preventDefault()"
+        [class]="currentFormat === 'h3'? 'active':'' ">
+        <h3>Heading 2</h3>
+      </button>
+    </div>
+    <!-- <mat-select
+    placeholder="Text Style"
+    (selectionChange)="formatTextStyle($event.value)"
+    >
+      <mat-option value='body'>Body</mat-option>
+      <mat-option value='<H1>'><H1>Title</H1></mat-option>
+      <mat-option value='<H2>'><h2>Heading 1</h2></mat-option>
+      <mat-option value='<H3>'><h3>Heading 2</h3></mat-option>
+    </mat-select> -->
+  </div>
+  <div class="editor">
+    <div
+      #Editor
+      class="editorContent"
+      contenteditable="true"
+      [(innerHTML)]="text"
+      (keyup)="removeUnauthorizedFormatting()"
+      [attr.placeholder]="'Say something about yourself'"
+      (keydown)="overrideDefaultKeys($event)"
+      (keydown)="updateStyleToolbar()"
+      (mousedown)="updateStyleToolbar()"
+      (mouseup)="updateStyleToolbar()"
+      (keyup)="updateStyleToolbar()"
+    ></div>
+  </div>
+</div>

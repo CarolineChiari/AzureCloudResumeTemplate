@@ -1,20 +1,29 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { MsalService } from "@azure/msal-angular";
 import { AuthenticationResult } from "@azure/msal-browser";
 import { environment } from "src/environments/environment";
+import { User } from "./Models/User.model";
+import { BackendAPIService } from "./services/backendAPI/backendAPI.service";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = "CloudResumeTemplate";
   environment = environment;
-  constructor(private msalService: MsalService) {}
+  user: User = null
+  constructor(private msalService: MsalService, private backendAPI:BackendAPIService) {}
+  ngOnInit(){
+    this.backendAPI.getUserObservable().subscribe( user => {
+      this.user = user
+    });
+    this.backendAPI.getUserInformation();
+
+  }
 
   login() {
-
     this.msalService
       .loginPopup()
       .subscribe((response: AuthenticationResult) => {

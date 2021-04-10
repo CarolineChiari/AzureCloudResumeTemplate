@@ -1,0 +1,182 @@
+.newJobForm {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+margin: auto;
+}
+.newJob {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+input.title {
+  width: 30vw;
+  margin: 5px;
+  height: 25px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+input.company {
+  width: 25vw;
+  margin: 5px;
+  height: 25px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+input.startDate {
+  width: 10vw;
+  margin: 5px;
+  height: 25px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+input.endDate {
+  width: 10vw;
+  margin: 5px;
+  height: 25px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+button {
+  width: 10vw;
+  font-size: 25px;
+  border-radius: 10px;
+  /* background: #0086ff; */
+  text-shadow: 1px 1px black, 2px 2px 3px rgb(0 0 0 / 25%);
+  border: none;
+  color: white;
+  height: 40px;
+}
+
+.jobs {
+  width: 95%;
+  margin: auto;
+}
+
+.responsibilities {
+  width: 100%;
+  /* background: aliceblue; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  transition: 1s all;
+}
+
+.responsibility{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 5px;
+  padding: 5px;
+}
+
+.responsibility input{
+  margin: 5px;
+  height: 25px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+.responsibility input.responsibilityDescription{
+  width: 60%;
+}
+.responsibility input.skills{
+  width: 30%;
+}
+
+.add {
+  /* color: #0086ff; */
+}
+
+.remove {
+  /* color: #ff6e1a; */
+}
+
+.job .header {
+  display: flex;
+    height: 50px;
+    /* background-color: #0086ff; */
+    border-radius: 10px;
+    align-items: center;
+    padding-left: 10px;
+    flex-wrap: nowrap;
+    margin: 5px;
+    cursor: pointer;
+}
+.job .header .title {
+  font-weight: 700;
+  color: white;
+  padding: 5px;
+  text-shadow: 1px 1px black;
+  font-size: 25px;
+}
+.job .header .company {
+  font-weight: 500;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  text-shadow: 1px 1px black;
+}
+.job .header .dates {
+  margin: 5px 5px 5px auto;
+  font-weight: 500;
+  font-size: 25px;
+  /* color: #ff6e1a; */
+  text-shadow: 1px 1px black, 2px 2px 4px rgb(0 0 0 / 25%);
+}
+.material-icons{
+  margin-right:25px;
+  text-shadow: 1px 1px black;
+  font-size: 35px;
+  cursor: pointer;
+}
+.edit {
+  color: white;
+}
+
+.description {
+  width: 75%;
+  display: flex;
+  align-items: center;
+}
+.skills {
+  display: flex;
+  width: 30%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.skill {
+  /* background: #ff6e1a; */
+  padding: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  width: max-content;
+  margin: 5px;
+  color:  white;
+}
+
+.open{
+  overflow: hidden;
+  height: auto;
+  transition: 1s all;
+}
+.closed{
+  overflow: hidden;
+  height: 0px;
+  transition: 1s all;
+}

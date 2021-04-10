@@ -1,0 +1,41 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.message {
+  font-size: 2.5vw;
+  text-shadow: 0.1vw 0.1vw black;
+  font-weight: 600;
+}
+
+.image {
+  width: 50vw;
+  height: 50vw;
+  animation-name: loadingImages;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50vw;
+}
+
+@keyframes loadingImages {
+  0% {
+    background-image: url("../../assets/azurefunctions.png");
+  }
+  25% {
+    background-image: url("../../assets/azurefunctions.png");
+  }
+  75% {
+    background-image: url("../../assets/cosmosdb.png");
+  }
+  100% {
+    background-image: url("../../assets/cosmosdb.png");
+  }
+}

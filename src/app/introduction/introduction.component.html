@@ -1,0 +1,19 @@
+<div class="content primary-backgroundColor">
+  <div class="Header" *ngIf="user">
+    <div class="name">
+      <div
+        class="letter secondary-color"
+        *ngFor="let character of getNameLetters()"
+      >
+        {{ character }}
+      </div>
+    </div>
+
+    <h2 class="secondary-color">{{ user.title }}</h2>
+  </div>
+  <div class="social">
+    <a class="icon" *ngFor="let social of user.social" [href]="social.value" >
+      {{ getSocialCharacter(social.name).character }}
+    </a>
+  </div>
+</div>

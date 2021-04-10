@@ -1,33 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Job } from '../Models/Job.model';
+import { User } from '../Models/User.model';
+import { BackendAPIService } from '../services/backendAPI/backendAPI.service';
 
 @Component({
   selector: 'app-Resume',
   templateUrl: './Resume.component.html',
   styleUrls: ['./Resume.component.css']
 })
+
 export class ResumeComponent implements OnInit {
 
-  Jobs: Job[]=[];
+  @Input() jobs: Job[]=[];
+  filter: string[]=[];
+  @Input() user: User;
 
-  constructor() { }
+  constructor(private backendAPI:BackendAPIService) { }
 
   ngOnInit() {
-    this.Jobs.push({
-      title: "Cloud & Data Engineer",
-      employer: {
-        name: "The Cloud",
-        website: "https://azure.com"
-      },
-      dates: {
-        start: new Date("1/1/2020")
-      },
-      duties: [
-        {description:"Do Cloud Stuff",skills:["Azure","AWS","Google Cloud"]},
-        {description:"Create a cloud resume",skills:["Azure","Azure Functions","Azure API Management","Azure Storage","Angular","Azure Virtual Network", "Azure DNS"]}
-      ]
-    })
+    // this.backendAPI.getJobsObservable().subscribe(jobs=>{
+    //   this.jobs = jobs;
+    // });
+    // this.backendAPI.getUserObservable().subscribe(user=> {
+    //   this.user = user;
+    // })
+    // this.backendAPI.getJobs();
   }
-
-
+hasFilter(duty: {responsibility: string, skills: string[]}){
+  var found = false;
+  duty.skills.forEach(skill => {
+    if (this.filter.contains(skill))
+      found=true;
+  })
+  return found;
+}
+  isFiltered(skill:string){
+    return this.filter.contains(skill);
+  }
+  addFilter(skill: string){
+    if (this.filter.contains(skill)){
+      this.filter.splice(this.filter.findIndex(v => v===skill),1);
+    }else{
+      this.filter.push(skill)
+      this.filter.unique();
+    }
+  }
 }

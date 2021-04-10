@@ -1,13 +1,11 @@
 export interface Job {
+  id: string;
   title: string;
-  employer: {
-    name: string,
-    website?: string,
-    location?: string
-  };
-  dates: {start: Date, end?: Date}
+  company: string;
+  startDate: string;
+  endDate: string;
   duties: {
-    description: string,
+    responsibility: string,
     skills: string[]
   }[]
 }

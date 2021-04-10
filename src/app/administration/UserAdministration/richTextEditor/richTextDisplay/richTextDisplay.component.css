@@ -1,0 +1,13 @@
+.mainVis {
+  position: relative;
+}
+.close {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  cursor: pointer;
+  transition: all 1s;
+}
+.close:hover {
+  text-shadow: 1px 1px white, 2px 2px 4px rgba(0,0,0,0.2);
+}

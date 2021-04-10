@@ -1,0 +1,140 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.main {
+  /* display: flex; */
+  min-height: 25rem;
+  padding: 5px;
+}
+.editor {
+  /* width: calc(75% - 20px); */
+  margin: auto;
+  min-height: calc(20rem - 25px);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 10px;
+}
+.editorTools {
+  /* width: 75%; */
+  margin: auto;
+  height: 50px;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+  transition: all 1s;
+}
+.active {
+  /* background-color: #0086ff75; */
+  text-shadow: 2px 2px white, 1px 1px 5px #0086ff;
+}
+.editorTools mat-select {
+  width: 100px;
+}
+.editorTools button:hover {
+  text-shadow: 1px 1px white, 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transform: translateZ(10px) rotateX(10deg) rotateY(10deg) rotateZ(-4deg);
+  transition: all 1s;
+}
+
+.styleButton {
+  /* height: 100%; */
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: transparent;
+  align-items: center;
+  justify-items: center;
+  border: none;
+  cursor: pointer;
+  margin: 0px 5px;
+}
+
+.editorContent {
+  max-height: max-content;
+  min-height: calc(20rem - 25px);
+}
+
+.styleButton:focus {
+  outline: none;
+}
+
+.styleButton h1,
+h2,
+h3 {
+  margin: auto;
+}
+
+.hiddenPasteBuffer {
+  visibility: hidden;
+  overflow: hidden;
+  width: 0px;
+  height: 0px;
+}
+
+.helpIcon {
+  position: absolute;
+  right: calc((100vw - 75vw) / 2 + 5px);
+  cursor: help;
+  color: #0086ff;
+  text-shadow: 1px 1px white, 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                            User input formatting                           */
+/* -------------------------------------------------------------------------- */
+
+[contenteditable="true"] h1 {
+  color: #0086ff;
+  font-family: "Montserrat", "Roboto";
+}
+.editorContent ::ng-deep * {
+  color: black;
+}
+.editorContent h2 {
+  color: #ff6e1a;
+}
+
+.editorContent ::ng-deep b {
+  color: #ff6e1a;
+}
+
+.editorContent::placeholder {
+  color: gray;
+}
+
+[contenteditable="true"]:active,
+[contenteditable="true"]:focus {
+  border: none;
+  outline-color: #0086ff;
+  outline-offset: 10px;
+}
+/* [contenteditable="true"]:hover::before,
+[contenteditable="true"]:focus::before{
+content:"Edit Me!";
+} */
+
+.textStyleButtons {
+  max-height: 50px;
+  display: flex;
+  margin: 0px 5px;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 600px) {
+  .editorTools {
+    height: 150px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1132px) {
+  .editorTools {
+    height: 100px;
+  }
+}
