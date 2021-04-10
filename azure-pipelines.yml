@@ -20,8 +20,8 @@ steps:
     sed -i '' -e 's/<ApplicationClientID>/$(clientId)/g' ./src/environments/environment.prod.ts
     sed -i '' -e 's/<AzureTenantID>/$(tenantId)/g' ./src/environments/environment.prod.ts
     sed -i '' -e 's,<ProductionRedirectURI>,$(prodRedirectURI),g' ./src/environments/environment.prod.ts
-    sed -i '' -e 's,<ProductionRedirectURI>,$(APIGateway),g' ./src/environments/environment.prod.ts
-    sed -i '' -e 's,<ProductionRedirectURI>,$(AdminAPIGateway),g' ./src/environments/environment.prod.ts
+    sed -i '' -e 's,<APIGateway>,$(APIGateway),g' ./src/environments/environment.prod.ts
+    sed -i '' -e 's,<AdminAPIGateway>,$(AdminAPIGateway),g' ./src/environments/environment.prod.ts
     npm install -g @angular/cli
     npm install
     ng build --prod
