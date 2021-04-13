@@ -10,14 +10,15 @@ export class IntroductionComponent implements OnInit {
   constructor() {}
 
   @Input() user: User;
-
+  @Input() visitors: number = null;
   socialMap = [
     { name: "youtube", character: 77, style: { "font-size.vw": 5 } },
     { name: "linkedin", character: 67, style: { "font-size.vw": 5 } },
     { name: "github", character: 41, style: { "font-size.vw": 4 } },
   ];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
   getNameLetters(): string[] {
     if (this.user) return this.user.name.split("");
     return [];
@@ -29,8 +30,11 @@ export class IntroductionComponent implements OnInit {
       }
     });
     if (socialItem) {
-      return {character: String.fromCharCode(socialItem.character), style: socialItem.style};
+      return {
+        character: String.fromCharCode(socialItem.character),
+        style: socialItem.style,
+      };
     }
-    return {character: null, style: null};
+    return { character: null, style: null };
   }
 }

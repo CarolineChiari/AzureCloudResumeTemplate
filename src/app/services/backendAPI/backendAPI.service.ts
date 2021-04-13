@@ -57,4 +57,20 @@ export class BackendAPIService {
       this.JobsObservable.next([...this.jobs]);
     }
   }
+
+/* -------------------------------------------------------------------------- */
+/*                               Visitors Count                               */
+/* -------------------------------------------------------------------------- */
+
+private visitors: number;
+private visitorsObservable = new Subject<number>();
+getVisitorsObservable(){
+  return this.visitorsObservable.asObservable();
+}
+getVisitors(){
+  this.http.get<{count: number}>(`${environment.apiGateway}/visitors`).subscribe(res=>{
+    this.visitors = res.count
+    this.visitorsObservable.next(this.visitors);
+  })
+}
 }

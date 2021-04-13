@@ -16,4 +16,7 @@
       {{ getSocialCharacter(social.name).character }}
     </a>
   </div>
+  <div class="visitors" *ngIf="visitors">
+    You are visitor&nbsp;<div class="number secondary-color">#{{visitors}}</div>
+  </div>
 </div>

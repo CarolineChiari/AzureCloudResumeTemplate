@@ -13,6 +13,7 @@ export class MainPageComponent implements OnInit {
   constructor(private backendAPI: BackendAPIService) { }
   jobs: Job[]=[];
   user: User;
+  visitors:number = null;
   ngOnInit(): void {
     this.backendAPI.getJobsObservable().subscribe(jobs=>{
       this.jobs = jobs;
@@ -20,8 +21,13 @@ export class MainPageComponent implements OnInit {
     this.backendAPI.getUserObservable().subscribe(user=> {
       this.user = user;
     })
+    this.backendAPI.getVisitorsObservable().subscribe(visitors=>{
+      this.visitors = visitors;
+    })
+
     this.backendAPI.getJobs();
     this.backendAPI.getUserInformation();
+    this.backendAPI.getVisitors();
   }
 
 }

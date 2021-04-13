@@ -65,3 +65,15 @@ h2 {
   transition: all 1s;
   text-shadow: 1px 1px 3px rgb(0 0 0 / 25%);
 }
+
+.visitors {
+  font-size: 1.5vw;
+  font-weight: 300;
+  display: flex;
+  color: white;
+  text-shadow: 1px 1px 2px rgb(0 0 0 / 25%);
+}
+
+.visitors .number {
+  font-weight: 600;
+}
