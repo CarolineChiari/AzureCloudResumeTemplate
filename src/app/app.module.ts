@@ -24,7 +24,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { MsaladminguardGuard } from "./msaladminguard.guard";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { APIinterceptorInterceptor } from "./administration/interceptors/apiinterceptor.interceptor";
 
 import {MatTooltipModule} from '@angular/material/tooltip'
 import {MatIconModule} from '@angular/material/icon'
@@ -32,6 +31,7 @@ import { IntroductionComponent } from "./introduction/introduction.component";
 import { MainPageComponent } from './main-page/main-page.component';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 import { AboutMeComponent } from './about-me/about-me.component';
+import { RouterModule } from "@angular/router";
 
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
@@ -86,19 +86,6 @@ Array.prototype.contains = function (v, property = null) {
   }
 };
 
-// export function MSALInterceptorFactory(): MsalInterceptor {
-//   return new MsalInterceptor(
-//     {
-//       interactionType: InteractionType.Redirect,
-//       protectedResourceMap: new Map<string, Array<string>>([
-//         [environment.adminApiGateway, ["impersonate_user"]],
-//       ])
-//     },
-//     new MsalService(MSALInstanceFactory(),{
-
-//     })
-//   );
-// }
 
 @NgModule({
   declarations: [AppComponent, ResumeComponent, IntroductionComponent, MainPageComponent, LoadingScreenComponent, AboutMeComponent],
@@ -109,46 +96,10 @@ Array.prototype.contains = function (v, property = null) {
     MsalModule,
     BrowserAnimationsModule,
     MatTooltipModule,
-    MatIconModule
-    //from https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/initialization.md
-    // MsalModule.forRoot(
-    //   new PublicClientApplication(
-    //     // MSAL Configuration
-    //     {
-    //       auth: {
-    //         clientId: environment.azureADApplicationID,
-    //         authority: "https://login.microsoftonline.com/common/",
-    //         redirectUri: "http://localhost:4200"
-    //       },
-    //       cache: {
-    //         cacheLocation: "localStorage",
-    //         secureCookies: true
-    //       }
-    //     }
-    //   ),
-    //     {
-    //       interactionType: InteractionType.Popup, // MSAL Guard Configuration
-    //       // authRequest: {
-    //       //   redirectUri: "http://localhost:4200",
-    //       //   authority: "https://login.microsoftonline.com/common/"
-    //       // }
-    //     }
-    //   ,
-    //   {
-    //     protectedResourceMap: new Map([
-    //       ['http://localhost:4200/admin/', null]
-    //     ]),
-    //     interactionType: InteractionType.Popup,
-
-    //   }
-    // ),
+    MatIconModule,
+    RouterModule
   ],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: APIinterceptorInterceptor,
-    //   multi: true,
-    // },
     {
       provide: MSAL_INSTANCE,
       useFactory: MSALInstanceFactory,

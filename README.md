@@ -65,4 +65,4 @@ This website requires an [Azure AD application registration](docs/AzureAD/AzureA
 
 ### Azure Functions
 
-[Create an Azure Function App](/docs/Azure%20Functions.md) to handle the API requests.
+[Create an Azure Function App](/docs/Azure%20Functions/Front-End_Functions.md) to handle the API requests.
