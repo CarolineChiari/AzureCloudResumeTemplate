@@ -10,15 +10,31 @@ import {
 import { MsalService } from "@azure/msal-angular";
 import { AuthenticationResult } from "@azure/msal-browser";
 import { Observable } from "rxjs";
-import { environment } from "src/environments/environment";
+// import { environment } from "src/environments/environment";
 
+/**
+ * This route guard makes sure that a user is properly authenticated to Azure Active Directory
+ *
+ * @export
+ * @class MsaladminguardGuard
+ * @implements {CanActivate}
+ */
 @Injectable({
   providedIn: "root",
 })
+
 export class MsaladminguardGuard implements CanActivate {
   constructor(private msalService: MsalService, private router: Router) {}
+
+  /**
+   * Logs a user in and proceed to a specified route.
+   * If the user is not logged in, a popup window will log the user in.
+   *
+   * @param {string} route Route to redirect the user to once logged in.
+   * @memberof MsaladminguardGuard
+   */
   login(route: string) {
-    // console.log(route.map(segment=>segment.path).join('/'))
+    
     let tokenResponse = this.msalService.instance
       .handleRedirectPromise()
       .then((result) => {

@@ -1,27 +1,68 @@
-# CloudResumeTemplate
+# Cloud Resume Template
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
+## Table of Content
+- [Cloud Resume Template](#cloud-resume-template)
+  - [Table of Content](#table-of-content)
+  - [Introduction](#introduction)
+  - [Setup](#setup)
+    - [Prerequisites](#prerequisites)
+    - [Pick a location](#pick-a-location)
+    - [Pick a name for your resources](#pick-a-name-for-your-resources)
+    - [Create a new resource group for your site](#create-a-new-resource-group-for-your-site)
+    - [Azure Storage Account](#azure-storage-account)
+    - [Azure AD Application](#azure-ad-application)
+    - [Cosmos DB](#cosmos-db)
+    - [Azure Functions](#azure-functions)
 
-## Development server
+## Introduction
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This code was created for the [A Cloud Guru Azure Cloud Resume Challenge](https://acloudguru.com/blog/engineering/cloudguruchallenge-your-resume-in-azure). This single page app was designed to require a more extensive cloud knowledge than the basics. The topics covered here are:
+- Azure Content Delivery Network
+- Azure Blob Storage
+- Azure Storage Queue
+- Azure Functions
+- Azure API Management
+- Azure Application Insight
+- Azure Maps
+- Azure Cosmos DB
 
-## Code scaffolding
+## Setup
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Prerequisites
 
-## Build
+1. Azure Subscription
+2. Azure DevOps Account
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Pick a location
 
-## Running unit tests
+You should pick a location for all your resources so they are all in the same region and compatible with each other.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+If you don't know which location to choose, here are two things to keep in mind:
+1. Distance from your users
+2. Costs (see [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/))
 
-## Running end-to-end tests
+You should strive to optimize both.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Pick a name for your resources
 
-## Further help
+Even though it is not a requirement, it is best practice to name all the resources related to the same project in a similar way. It makes it easier to identify the resources related to each other.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Create a new resource group for your site
+
+Even though you don't need to, it's best practice to group resources together in a resource group. Even better would be a new subscription, but for a personal subscriptions it's not necessary.
+
+### Azure Storage Account
+
+To host this website, you will need an [Azure Storage account](docs/AzureStorage/AzureStorage.md)
+
+### Azure AD Application
+
+This website requires an [Azure AD application registration](docs/AzureAD/AzureAD.md) so you can enter data easily and securely from within the website.
+
+### Cosmos DB
+
+[Create a Cosmos DB](docs/CosmosDB/CosmosDBSetup.md) to store the data
+
+### Azure Functions
+
+[Create an Azure Function App](/docs/Azure%20Functions.md) to handle the API requests.

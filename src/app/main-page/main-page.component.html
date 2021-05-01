@@ -1,4 +1,4 @@
-<app-loading-screen *ngIf="!user && !jobs"></app-loading-screen>
+<app-loading-screen *ngIf="!user || jobs.length === 0"></app-loading-screen>
 <ng-container *ngIf="user && jobs">
   <app-introduction [user]="user" [visitors]="visitors"></app-introduction>
   <app-about-me [aboutMe]="user.aboutMe"></app-about-me>
