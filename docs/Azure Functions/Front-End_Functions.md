@@ -8,6 +8,8 @@
   - [Get Jobs](#get-jobs)
   - [Get User](#get-user)
   - [Post Visitor](#post-visitor)
+  - [Process Visitor](#process-visitor)
+    - [(Optional) Country Tally](#optional-country-tally)
 
 ## Introduction
 
@@ -138,3 +140,46 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 })
 ```
 
+## Process Visitor
+
+This function is used to process the queue of users and update the total.
+
+[Create a new Azure Queue Storage function](./Azure-Functions_General-Operations.md#creating-a-new-azure-queue-storage-function) and name it **processVisitors** using your [storage account and the queue you created](../AzureStorage/AzureStorage.md).
+
+[Create an **input** integration with your Cosmos DB](./Azure-Functions_General-Operations.md#cosmosdb-integration) using the following:
+- **Document Parameter Name**: visitorsDocuments  
+- **Database**: data
+- **Collection Name**: visitors
+
+[Create an **output** integration with your Cosmos DB](./Azure-Functions_General-Operations.md#cosmosdb-integration) using the following:
+- **Document Parameter Name**: outputTotal  
+- **Database**: data
+- **Collection Name**: visitors
+
+:mortar_board: **Challenge**: Write the code for the function to retrieve the total number of visitors, increase it by 1 and update the database document.
+
+:key: The code for the function to retrieve the total number of visitors, increase it by 1 and update the database document is as follows:
+
+``` PowerShell
+# Input bindings are passed in via param block.
+param([string] $QueueItem, $TriggerMetadata, $VisitorsDocuments)
+
+$total = $VisitorsDocuments | Where-Object {$_.country -eq 'total'}
+if (-not $total){
+    $total = @{
+        "country" = 'total'
+        "visitors" = 0
+    }
+}
+$total['visitors']++
+
+Push-OutputBinding -name outputTotal -value ($total | ConvertTo-JSON)
+```
+
+### (Optional) Country Tally
+Optionally, you can use an Azure Maps service to find the country an IP address if from. It's currently not doing anything other than tally the countries in the database.
+
+[Create an **output** integration with your Cosmos DB](./Azure-Functions_General-Operations.md#cosmosdb-integration) using the following:
+- **Document Parameter Name**: outputVisitors  
+- **Database**: data
+- **Collection Name**: visitors

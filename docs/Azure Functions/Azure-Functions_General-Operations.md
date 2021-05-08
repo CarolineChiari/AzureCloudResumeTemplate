@@ -1,14 +1,20 @@
 # Azure Functions - General Operations
 
 ## Table of Content
+- [Azure Functions - General Operations](#azure-functions---general-operations)
+  - [Table of Content](#table-of-content)
   - [Introduction](#introduction)
   - [Creating An Azure Functions App](#creating-an-azure-functions-app)
+  - [VS Code set up](#vs-code-set-up)
   - [Creating a new HTTP function](#creating-a-new-http-function)
+  - [Creating a new Azure Queue Storage function](#creating-a-new-azure-queue-storage-function)
   - [Integrating Resources with Azure Function](#integrating-resources-with-azure-function)
     - [Input](#input)
     - [Output](#output)
     - [CosmosDB Integration](#cosmosdb-integration)
     - [Storage Queue Integration](#storage-queue-integration)
+
+
 ## Introduction
 This document contains instructions on how to perform general operations on Azure functions, such as creating an azure functions app resource, creating a new functions, and integrating an azure function with an external resource.
 
@@ -38,9 +44,13 @@ This document contains instructions on how to perform general operations on Azur
 20. Click on **Review + Create**
 21. Click on **Create**
 
-## Creating a new HTTP function
+## VS Code set up
 
 For this project, functions will be edited in the portal, therefore there is no VSCode setup.
+
+## Creating a new HTTP function
+
+An HTTP function is a function that is triggered by an HTTP trigger request.
 
 In your Azure Functions App Resource
 1. Click on **Functions**
@@ -50,6 +60,21 @@ In your Azure Functions App Resource
 5. Click **Add**
 
 ![Add a function](../../img/AzureFunc-New-AddFunc.png)
+
+## Creating a new Azure Queue Storage function
+
+An Azure Queue Storage function is a function that is triggered by items being added to a storage queue. Each item triggers one function. When the item is processed it's removed from the queue. A queue is a first-in-first-out data structure, therefore, messaged will be processed in the order they are received.
+
+In your Azure Functions App:
+1. Click on **Functions**
+2. Click **+ Add**
+3. For the **Template** select the *Azure Storage Queue*
+4. Scroll down and enter a function name under **New Function**
+5. Enter a queue name from your storage account under **Queue Name**
+6. Select the appropriate storage account where the queue is located ins **Storage account connection** or click **New** if the connection doesn't already exist.
+7. Click **Add**
+
+![Azure queue storage function](../../img/AzureFunc-NewQueueFunc.png)
 
 ## Integrating Resources with Azure Function
 
